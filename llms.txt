@@ -1,0 +1,15 @@
+# Loop XXI
+
+> Loop XXI is a holding and operating company. We build software, pursue ventures, and grow the balance sheet. Our software is open source wherever possible.
+
+## Pages
+
+- [Home](https://loopxxi.com/): who we are and how we operate
+
+## Code
+
+- [GitHub](https://github.com/Loop-XXI): open-source tools, including [agentready](https://github.com/Loop-XXI/agentready) — audit any website for AI-agent readiness
+
+## Contact
+
+- Email: business@loopxxi.com

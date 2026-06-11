@@ -15,6 +15,8 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://v3b.fal.media/files/b/0a9dddf8/YUX2k4J6nIFg_ibxmu521_VaO7Qp9J.png">
 <meta name="theme-color" content="#0a0a0a">
+<link rel="preconnect" href="https://rsms.me/">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -53,6 +55,7 @@
     background: var(--bg);
     color: var(--ink);
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-feature-settings: "ss01", "cv11";
     font-size: 17px;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
@@ -74,33 +77,16 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: clamp(72px, 8vw, 88px);
-    height: clamp(72px, 8vw, 88px);
-    background: #171716;
-    color: #efede6;
-    border: none;
     text-decoration: none;
-    border-radius: 0;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+    border: none;
+    color: var(--ink);
+    line-height: 0;
   }
-  .logo:hover { border: none; }
-  .logo-text {
-    display: inline-flex;
-    align-items: flex-start;
-    font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
-    font-size: clamp(16px, 1.9vw, 21px);
-    font-weight: 600;
-    letter-spacing: -0.035em;
-    line-height: 1;
-    color: inherit;
-    transform: translateY(1px);
-  }
-  .logo-text sup {
-    font-size: 0.42em;
-    line-height: 1;
-    top: -0.45em;
-    margin-left: 1px;
-    position: relative;
+  .logo:hover { opacity: 0.92; }
+  .logo-mark {
+    width: clamp(56px, 6vw, 64px);
+    height: clamp(56px, 6vw, 64px);
+    display: block;
   }
 
   /* ── Hero ──────────────────────────── */
@@ -195,7 +181,10 @@
   <div class="wrap">
     <!-- LoopXXI logo -->
     <a href="/" class="logo" aria-label="LoopXXI home">
-      <span class="logo-text">LOOP<sup>®</sup></span>
+      <svg class="logo-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="32" cy="32" r="16" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-dasharray="88 12" stroke-dashoffset="-3"/>
+        <circle cx="32" cy="32" r="5" fill="currentColor"/>
+      </svg>
     </a>
   </div>
 </header>

@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LoopXXI — Brand Kit</title>
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <style>
+      /* ─── LOOPXXI DESIGN SYSTEM v1 ─────────────────────────────────────
+         Palette: Obsidian / Bone / Mid-gray / Subtle-gray
+         Typeface: Inter (variable, ss01 cv11)
+         Tone: tech holding company — steel, not blockchain orange
+      ─────────────────────────────────────────────────────────────────── */
+      :root {
+        /* Core palette */
+        --clr-black:   #0a0a0a;   /* Obsidian   — primary ink, logo bg */
+        --clr-white:   #f5f5f4;   /* Bone white — body bg, logo mark  */
+        --clr-gray-90: #1a1a1a;   /* Near-black  — dark surface, cards */
+        --clr-gray-60: #595959;   /* Mid-gray    — secondary text      */
+        --clr-gray-30: #a3a3a3;   /* Muted text  — tertiary            */
+        --clr-gray-10: #e5e5e5;   /* Hairline    — borders, dividers   */
+        --clr-gray-05: #f0f0ef;   /* Surface     — hovered cells       */
+
+        /* Semantic aliases */
+        --bg:      var(--clr-white);
+        --ink:     var(--clr-black);
+        --muted:   var(--clr-gray-60);
+        --line:    var(--clr-gray-10);
+        --surface: var(--clr-gray-05);
+
+        /* Typography scale */
+        --text-xs:  12px;
+        --text-sm:  13px;
+        --text-base: 15px;
+        --text-md:  17px;
+        --text-lg:  22px;
+        --text-xl:  32px;
+        --text-2xl: 48px;
+
+        /* Spacing */
+        --space-2: 2px; --space-4: 4px; --space-8: 8px; --space-12: 12px;
+        --space-16: 16px; --space-24: 24px; --space-32: 32px;
+        --space-48: 48px; --space-64: 64px; --space-80: 80px;
+
+        /* Radius */
+        --r-sm: 4px; --r-md: 8px; --r-lg: 14px; --r-full: 9999px;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body {
+        margin: 0; padding: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        font-feature-settings: "ss01", "cv11";
+        -webkit-font-smoothing: antialiased;
+        font-size: var(--text-base);
+        line-height: 1.6;
+      }
+
+      .page { max-width: 900px; margin: 0 auto; padding: var(--space-80) var(--space-32) var(--space-64); }
+
+      /* Section */
+      .section { margin-bottom: var(--space-80); }
+      .section-label {
+        font-size: var(--text-xs);
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin: 0 0 var(--space-24);
+        padding-bottom: var(--space-12);
+        border-bottom: 1px solid var(--line);
+      }
+
+      /* Heading */
+      .brand-name {
+        font-size: var(--text-2xl);
+        font-weight: 600;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        margin: 0 0 var(--space-8);
+      }
+      .brand-tagline {
+        font-size: var(--text-md);
+        color: var(--muted);
+        margin: 0 0 var(--space-48);
+        max-width: 52ch;
+      }
+
+      /* Logo variants grid */
+      .logo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: var(--space-16);
+      }
+      .logo-cell {
+        border: 1px solid var(--line);
+        border-radius: var(--r-lg);
+        padding: var(--space-32) var(--space-24);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-16);
+        min-height: 160px;
+      }
+      .logo-cell.dark { background: var(--clr-black); border-color: #333; }
+      .logo-cell.gray { background: #f0f0ef; }
+      .cell-label {
+        font-size: var(--text-xs);
+        color: var(--muted);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .logo-cell.dark .cell-label { color: #555; }
+
+      /* Mark SVG inline sizing */
+      .mark-lg { width: 64px; height: 64px; }
+      .mark-md { width: 40px; height: 40px; }
+      .mark-sm { width: 26px; height: 26px; }
+
+      /* Wordmark */
+      .wordmark {
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        line-height: 1;
+      }
+      .wordmark .xxI { font-weight: 400; color: var(--muted); }
+      .wordmark-light { color: #f5f5f4; }
+      .wordmark-light .xxI { color: #666; }
+
+      /* Color swatches */
+      .swatches { display: flex; flex-wrap: wrap; gap: var(--space-12); }
+      .swatch {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-8);
+        min-width: 100px;
+      }
+      .swatch-chip {
+        width: 100%;
+        height: 64px;
+        border-radius: var(--r-md);
+        border: 1px solid var(--line);
+      }
+      .swatch-name { font-size: var(--text-sm); font-weight: 500; }
+      .swatch-hex  { font-size: var(--text-xs); color: var(--muted); font-family: "SF Mono", "Fira Code", monospace; }
+
+      /* Typography specimen */
+      .type-specimens { display: flex; flex-direction: column; gap: var(--space-24); }
+      .type-row { display: flex; align-items: baseline; gap: var(--space-24); border-bottom: 1px solid var(--line); padding-bottom: var(--space-16); }
+      .type-meta { font-size: var(--text-xs); color: var(--muted); min-width: 140px; font-family: monospace; }
+      .type-sample { line-height: 1.2; }
+
+      /* Voice & tone */
+      .voice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); }
+      .voice-card {
+        border: 1px solid var(--line);
+        border-radius: var(--r-lg);
+        padding: var(--space-24);
+      }
+      .voice-card h4 { margin: 0 0 var(--space-8); font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.08em; }
+      .voice-card.do h4 { color: var(--clr-black); }
+      .voice-card.dont h4 { color: var(--clr-gray-30); }
+      .voice-card ul { margin: 0; padding-left: var(--space-16); }
+      .voice-card li { font-size: var(--text-sm); color: var(--muted); margin-bottom: var(--space-4); }
+
+      /* Usage rules */
+      .rules { display: flex; flex-direction: column; gap: var(--space-12); }
+      .rule {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-12);
+        font-size: var(--text-sm);
+        color: var(--muted);
+      }
+      .rule-num {
+        min-width: 20px;
+        height: 20px;
+        border-radius: var(--r-full);
+        background: var(--clr-black);
+        color: var(--clr-white);
+        font-size: 10px;
+        font-weight: 600;
+        display: flex; align-items: center; justify-content: center;
+        margin-top: 2px;
+      }
+
+      footer {
+        margin-top: var(--space-80);
+        padding-top: var(--space-24);
+        border-top: 1px solid var(--line);
+        font-size: var(--text-xs);
+        color: var(--muted);
+        display: flex;
+        justify-content: space-between;
+      }
+
+      @media (max-width: 600px) {
+        .page { padding: var(--space-48) var(--space-24) var(--space-32); }
+        .voice-grid { grid-template-columns: 1fr; }
+        .swatches { gap: var(--space-8); }
+        .swatch { min-width: 80px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+
+      <!-- ── HEADER ─────────────────────────────────────────────── -->
+      <header class="section">
+        <!-- Loop Arc Mark (inline SVG) -->
+        <svg class="mark-lg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Open ring arc — gap at bottom-right ~30deg -->
+          <circle cx="32" cy="30" r="16" stroke="#0a0a0a" stroke-width="5"
+            stroke-linecap="round"
+            stroke-dasharray="88 12"
+            stroke-dashoffset="-3" />
+          <!-- Inner dot -->
+          <circle cx="32" cy="30" r="4" fill="#0a0a0a" />
+        </svg>
+
+        <h1 class="brand-name" style="margin-top:24px;">LoopXXI Brand Kit</h1>
+        <p class="brand-tagline">Identity guidelines for Loop21 LLC — the technology holding company.</p>
+      </header>
+
+      <!-- ── LOGO MARK ──────────────────────────────────────────── -->
+      <section class="section">
+        <p class="section-label">Logo Mark</p>
+        <div class="logo-grid">
+
+          <!-- Light bg, mark only -->
+          <div class="logo-cell">
+            <svg class="mark-lg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="30" r="16" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-dasharray="88 12" stroke-dashoffset="-3"/>
+              <circle cx="32" cy="30" r="4" fill="#0a0a0a"/>
+            </svg>
+            <span class="cell-label">Mark — Light</span>
+          </div>
+
+          <!-- Dark bg, mark only -->
+          <div class="logo-cell dark">
+            <svg class="mark-lg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="30" r="16" stroke="#f5f5f4" stroke-width="5" stroke-linecap="round" stroke-dasharray="88 12" stroke-dashoffset="-3"/>
+              <circle cx="32" cy="30" r="4" fill="#f5f5f4"/>
+            </svg>
+            <span class="cell-label" style="color:#444;">Mark — Dark</span>
+          </div>
+
+          <!-- Wordmark light -->
+          <div class="logo-cell">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <svg class="mark-md" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="30" r="16" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-dasharray="88 12" stroke-dashoffset="-3"/>
+                <circle cx="32" cy="30" r="4" fill="#0a0a0a"/>
+              </svg>
+              <span class="wordmark">Loop<span class="xxI">XXI</span></span>
+            </div>
+            <span class="cell-label">Wordmark — Light</span>
+          </div>
+
+          <!-- Wordmark dark -->
+          <div class="logo-cell dark">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <svg class="mark-md" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="30" r="16" stroke="#f5f5f4" stroke-width="5" stroke-linecap="round" stroke-dasharray="88 12" stroke-dashoffset="-3"/>
+                <circle cx="32" cy="30" r="4" fill="#f5f5f4"/>
+              </svg>
+              <span class="wordmark wordmark-light">Loop<span class="xxI">XXI</span></span>
+            </div>
+            <span class="cell-label" style="color:#444;">Wordmark — Dark</span>
+          </div>
+
+          <!-- Small/favicon -->
+          <div class="logo-cell">
+            <svg class="mark-sm" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="30" r="16" stroke="#0a0a0a" stroke-width="6" stroke-linecap="round" stroke-dasharray="88 12" stroke-dashoffset="-3"/>
+              <circle cx="32" cy="30" r="4" fill="#0a0a0a"/>
+            </svg>
+            <span class="cell-label">Icon / 26px</span>
+          </div>
+
+          <!-- Stacked vertical wordmark -->
+          <div class="logo-cell dark">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+              <svg class="mark-md" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="30" r="16" stroke="#f5f5f4" stroke-width="5" stroke-linecap="round" stroke-dasharray="88 12" stroke-dashoffset="-3"/>
+                <circle cx="32" cy="30" r="4" fill="#f5f5f4"/>
+              </svg>
+              <span class="wordmark wordmark-light" style="font-size:14px;letter-spacing:0.04em;">LOOP<span class="xxI" style="color:#555;">XXI</span></span>
+            </div>
+            <span class="cell-label" style="color:#444;">Stacked — Dark</span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ── COLOR PALETTE ──────────────────────────────────────── -->
+      <section class="section">
+        <p class="section-label">Color Palette</p>
+        <div class="swatches">
+          <div class="swatch">
+            <div class="swatch-chip" style="background:#0a0a0a; border-color:#333;"></div>
+            <span class="swatch-name">Obsidian</span>
+            <span class="swatch-hex">#0a0a0a</span>
+          </div>
+          <div class="swatch">
+            <div class="swatch-chip" style="background:#1a1a1a; border-color:#333;"></div>
+            <span class="swatch-name">Charcoal</span>
+            <span class="swatch-hex">#1a1a1a</span>
+          </div>
+          <div class="swatch">
+            <div class="swatch-chip" style="background:#595959;"></div>
+            <span class="swatch-name">Mid-Gray</span>
+            <span class="swatch-hex">#595959</span>
+          </div>
+          <div class="swatch">
+            <div class="swatch-chip" style="background:#a3a3a3;"></div>
+            <span class="swatch-name">Muted</span>
+            <span class="swatch-hex">#a3a3a3</span>
+          </div>
+          <div class="swatch">
+            <div class="swatch-chip" style="background:#e5e5e5;"></div>
+            <span class="swatch-name">Hairline</span>
+            <span class="swatch-hex">#e5e5e5</span>
+          </div>
+          <div class="swatch">
+            <div class="swatch-chip" style="background:#f0f0ef;"></div>
+            <span class="swatch-name">Surface</span>
+            <span class="swatch-hex">#f0f0ef</span>
+          </div>
+          <div class="swatch">
+            <div class="swatch-chip" style="background:#f5f5f4;"></div>
+            <span class="swatch-name">Bone</span>
+            <span class="swatch-hex">#f5f5f4</span>
+          </div>
+        </div>
+        <p style="font-size:13px;color:var(--muted);margin-top:20px;">
+          Accent color: <strong style="color:var(--ink);">none</strong>. 
+          No orange, no blue, no brand-color ties to specific protocols.
+          All emphasis is achieved through weight, size, and contrast alone.
+        </p>
+      </section>
+
+      <!-- ── TYPOGRAPHY ─────────────────────────────────────────── -->
+      <section class="section">
+        <p class="section-label">Typography — Inter Variable</p>
+        <div class="type-specimens">
+          <div class="type-row">
+            <span class="type-meta">Display / 48px 500</span>
+            <span class="type-sample" style="font-size:48px;font-weight:500;letter-spacing:-0.03em;line-height:1.1;">LoopXXI</span>
+          </div>
+          <div class="type-row">
+            <span class="type-meta">Heading / 32px 500</span>
+            <span class="type-sample" style="font-size:32px;font-weight:500;letter-spacing:-0.025em;line-height:1.15;">A holding company for durable software.</span>
+          </div>
+          <div class="type-row">
+            <span class="type-meta">Sub-heading / 22px 500</span>
+            <span class="type-sample" style="font-size:22px;font-weight:500;letter-spacing:-0.015em;">Products that compound over time.</span>
+          </div>
+          <div class="type-row">
+            <span class="type-meta">Body / 17px 400</span>
+            <span class="type-sample" style="font-size:17px;font-weight:400;line-height:1.6;color:var(--muted);">We build AI-powered tools and software products that generate recurring, compounding value. We hold Bitcoin with a long horizon. We ship under the company name only when it helps the product.</span>
+          </div>
+          <div class="type-row">
+            <span class="type-meta">Caption / 13px 400</span>
+            <span class="type-sample" style="font-size:13px;color:var(--muted);">Loop21 LLC · Illinois · All rights reserved</span>
+          </div>
+          <div class="type-row">
+            <span class="type-meta">Label / 11px 600 UC</span>
+            <span class="type-sample" style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">Company · Software · AI · Bitcoin</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── VOICE & TONE ────────────────────────────────────────── -->
+      <section class="section">
+        <p class="section-label">Voice &amp; Tone</p>
+        <div class="voice-grid">
+          <div class="voice-card do">
+            <h4>✓ Do</h4>
+            <ul>
+              <li>Calm, direct, confident</li>
+              <li>Tech company first — Bitcoin is a treasury asset</li>
+              <li>Emphasize compounding, durability, recursion</li>
+              <li>Quantify: "sats earned", "products shipped"</li>
+              <li>AI-first operations, systematic scaling</li>
+              <li>Let the work speak — restraint over hype</li>
+            </ul>
+          </div>
+          <div class="voice-card dont">
+            <h4>✕ Don't</h4>
+            <ul>
+              <li>Lead with "Bitcoin company" in public copy</li>
+              <li>Use orange as a brand color</li>
+              <li>Blockchain/crypto buzzwords on homepage</li>
+              <li>Overpromise or hype-cycle language</li>
+              <li>Hard-tie the brand to one protocol or asset</li>
+              <li>Verbose explanations — cut to the essential</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── USAGE RULES ─────────────────────────────────────────── -->
+      <section class="section">
+        <p class="section-label">Brand Usage Rules</p>
+        <div class="rules">
+          <div class="rule"><span class="rule-num">1</span><span>Always write the company as <strong>LoopXXI</strong> (one word, "XXI" roman numeral) or <strong>Loop21</strong> in legal contexts.</span></div>
+          <div class="rule"><span class="rule-num">2</span><span>The loop-arc mark must always have clear space equal to at least half its diameter on all sides.</span></div>
+          <div class="rule"><span class="rule-num">3</span><span>Do not recolor the mark. Use Obsidian on light backgrounds, Bone on dark. No tinted versions.</span></div>
+          <div class="rule"><span class="rule-num">4</span><span>The wordmark suffix "XXI" is always lighter than "Loop" — never bold or matching weight.</span></div>
+          <div class="rule"><span class="rule-num">5</span><span>No decorative elements around the logo: no drop shadows, glows, gradients, or containing boxes.</span></div>
+          <div class="rule"><span class="rule-num">6</span><span>Primary typeface is Inter. Fallback: -apple-system, BlinkMacSystemFont, sans-serif.</span></div>
+          <div class="rule"><span class="rule-num">7</span><span>Homepage copy should describe LoopXXI as a technology and software company, not a "Bitcoin company."</span></div>
+        </div>
+      </section>
+
+      <footer>
+        <span>Loop21 LLC · Brand Kit v1</span>
+        <a href="/" style="color:var(--muted);text-decoration:none;">← loopxxi.com</a>
+      </footer>
+    </div>
+  </body>
+</html>

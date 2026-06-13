@@ -195,16 +195,19 @@
   .logo-link {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    line-height: 0;
+    text-decoration: none;
     border: none;
     color: var(--ink);
-    line-height: 0;
   }
   .logo-link:hover { opacity: 0.92; }
   .logo-mark {
-    height: 36px;
+    height: 28px;
     width: auto;
     display: block;
+    background: none;
+    border: none;
+    padding: 0;
   }
   .nav-links {
     display: flex;
@@ -440,10 +443,18 @@
 
   /* ── Footer ────────────────────────── */
   footer { padding: 48px 0 40px; border-top: 1px solid var(--line); }
-  footer .wrap { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
   footer p { font-size: 13px; color: var(--muted); }
   footer a { color: var(--muted); border: none; }
   footer a:hover { color: var(--ink); }
+  .footer-logo {
+    height: 40px;
+    width: auto;
+    display: block;
+    background: none;
+    border: none;
+    padding: 0;
+  }
 
   /* ── Animations ────────────────────── */
   @media (prefers-reduced-motion: no-preference) {
@@ -525,7 +536,7 @@
   <div class="wrap">
     <nav>
       <a href="/" class="logo-link" aria-label="LoopXXI home">
-        <img class="logo-mark" src="/LoopXXI-Logo.png" alt="LoopXXI" />
+        <img class="logo-mark" src="/LoopXXI-wordmark.png" alt="LoopXXI" />
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#how">How we operate</a></li>
@@ -566,7 +577,7 @@
         </div>
         <div class="hero-visual">
           <div class="hero-logo">
-            <img class="hero-logo-img" src="/LoopXXI-Logo.png" alt="LoopXXI" />
+            <img class="hero-logo-img" src="/LoopXXI-wordmark.png" alt="LoopXXI" />
           </div>
         </div>
       </div>
@@ -627,6 +638,9 @@
 
 <footer>
   <div class="wrap">
+    <a href="/" aria-label="LoopXXI home">
+      <img class="footer-logo" src="/LoopXXI-wordmark.png" alt="LoopXXI" />
+    </a>
     <p>© <span id="y">2026</span> Loop21 LLC</p>
     <p>Chicago · Technology · Software · AI</p>
   </div>

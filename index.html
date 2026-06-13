@@ -17,7 +17,8 @@
 <meta name="theme-color" content="#0a0a0a">
 <link rel="preconnect" href="https://rsms.me/">
 <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="16" fill="none" stroke="%23e8e6df" stroke-width="6" stroke-linecap="round" stroke-dasharray="88 12" stroke-dashoffset="-3"/><circle cx="32" cy="32" r="5" fill="%23e8e6df"/></svg>'>
+<link rel="icon" type="image/png" href="/LoopXXI-Logo.png">
+<link rel="apple-touch-icon" href="/LoopXXI-Logo.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -70,16 +71,6 @@
   a:hover, a:focus-visible { border-color: var(--dim); }
   a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
   .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 32px; }
-
-  /* ─── Wordmark ─────────────────── */
-  .wordmark {
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    font-size: 17px;
-    line-height: 1;
-    color: var(--ink);
-  }
-  .wordmark .xxI { font-weight: 400; color: var(--muted); }
 
   /* ─── Background Canvas ─────────────────── */
   .bg-canvas {
@@ -211,8 +202,9 @@
   }
   .logo-link:hover { opacity: 0.92; }
   .logo-mark {
-    width: 32px;
-    height: 32px;
+    height: 36px;
+    width: auto;
+    display: block;
   }
   .nav-links {
     display: flex;
@@ -356,32 +348,19 @@
   }
   .btn-primary:hover svg { transform: translateX(3px); }
 
-  /* Hero visual — brand mark */
-  .hero-mark {
-    position: relative;
-    width: 320px;
-    height: 320px;
+  /* Hero visual — brand logo */
+  .hero-logo {
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 0.85;
+    transition: opacity 0.3s;
   }
-  .hero-mark-svg {
+  .hero-logo:hover { opacity: 1; }
+  .hero-logo-img {
+    max-width: 340px;
     width: 100%;
-    height: 100%;
-  }
-  .hero-mark-pulse {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--ink);
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    animation: breathe-dot 4s ease-in-out infinite;
-  }
-  @keyframes breathe-dot {
-    0%, 100% { box-shadow: 0 0 20px rgba(232,230,223,0.15); scale: 1; }
-    50%      { box-shadow: 0 0 40px rgba(232,230,223,0.3); scale: 1.2; }
+    height: auto;
   }
 
   /* ─── Bottom hero text ──────────── */
@@ -546,11 +525,7 @@
   <div class="wrap">
     <nav>
       <a href="/" class="logo-link" aria-label="LoopXXI home">
-        <svg class="logo-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="32" cy="32" r="16" stroke="#e8e6df" stroke-width="6" stroke-linecap="round" stroke-dasharray="88 12" stroke-dashoffset="-3"/>
-          <circle cx="32" cy="32" r="5" fill="#e8e6df"/>
-        </svg>
-        <span class="wordmark">Loop<span class="xxI">XXI</span></span>
+        <img class="logo-mark" src="/LoopXXI-Logo.png" alt="LoopXXI" />
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#how">How we operate</a></li>
@@ -590,14 +565,8 @@
 
         </div>
         <div class="hero-visual">
-          <div class="hero-mark">
-            <svg class="hero-mark-svg" viewBox="0 0 380 380" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="190" cy="190" r="100" stroke="rgba(232,230,223,0.04)" stroke-width="1"/>
-              <circle cx="190" cy="190" r="100" stroke="#e8e6df" stroke-width="3" stroke-linecap="round" stroke-dasharray="345 14" stroke-dashoffset="-3"/>
-              <circle cx="190" cy="190" r="32" fill="#e8e6df" opacity="0.07"/>
-              <circle cx="190" cy="190" r="6" fill="#e8e6df"/>
-            </svg>
-            <div class="hero-mark-pulse"></div>
+          <div class="hero-logo">
+            <img class="hero-logo-img" src="/LoopXXI-Logo.png" alt="LoopXXI" />
           </div>
         </div>
       </div>

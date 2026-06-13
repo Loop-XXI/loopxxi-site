@@ -17,6 +17,7 @@
 <meta name="theme-color" content="#0a0a0a">
 <link rel="preconnect" href="https://rsms.me/">
 <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="16" fill="none" stroke="%23e8e6df" stroke-width="6" stroke-linecap="round" stroke-dasharray="88 12" stroke-dashoffset="-3"/><circle cx="32" cy="32" r="5" fill="%23e8e6df"/></svg>'>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -27,27 +28,24 @@
   "email": "business@loopxxi.com",
   "description": "LoopXXI is a technology holding company that builds AI-powered software products designed to compound in value over time.",
   "sameAs": ["https://github.com/Loop-XXI"],
-  "logo": "/LoopXXI-Logo.png",
-  "image": "/LoopXXI-Logo.png"
+  "logo": "/LoopXXI-Logo.png"
 }
 </script>
-<!-- Favicon: LoopXXI logo -->
-<link rel="icon" type="image/png" href="/LoopXXI-Logo.png">
-<link rel="apple-touch-icon" href="/LoopXXI-Logo.png">
 <style>
   /* ─── LoopXXI Design System v1 ───────────────────────────────
      Palette: Obsidian / Bone / Muted-gray
      Typeface: Inter (variable)
-     Theme: Dark — primary presentation for web
+     Theme: Dark
   ──────────────────────────────────────────────────────────── */
   :root {
-    --bg:       #0a0a0a;   /* Obsidian */
-    --ink:      #e8e6df;   /* Bone     */
-    --muted:    #8a877e;   /* Muted    */
-    --dim:      #595550;   /* Dimmed   */
-    --line:     #1f1e1b;   /* Hairline */
-    --surface:  #141412;   /* Card bg  */
-    --maxw:     680px;
+    --bg:       #0a0a0a;
+    --ink:      #e8e6df;
+    --muted:    #8a877e;
+    --dim:      #595550;
+    --line:     #1f1e1b;
+    --surface:  #141412;
+    --glow:     #e8e6df;
+    --maxw:     1280px;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -59,138 +57,643 @@
     font-size: 17px;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
   ::selection { background: var(--ink); color: var(--bg); }
   a {
     color: var(--ink);
     text-decoration: none;
-    border-bottom: 1px solid var(--dim);
-    transition: border-color .2s;
+    border-bottom: 1px solid transparent;
+    transition: border-color .2s, opacity .2s;
   }
-  a:hover, a:focus-visible { border-color: var(--ink); }
+  a:hover, a:focus-visible { border-color: var(--dim); }
   a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
-  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 32px; }
 
-  /* ─── Header / Logo ─────────────────── */
-  header { padding: 40px 0 0; }
-  .logo {
+  /* ─── Wordmark ─────────────────── */
+  .wordmark {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    font-size: 17px;
+    line-height: 1;
+    color: var(--ink);
+  }
+  .wordmark .xxI { font-weight: 400; color: var(--muted); }
+
+  /* ─── Background Canvas ─────────────────── */
+  .bg-canvas {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .bg-canvas .gradient {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.12;
+  }
+  .bg-canvas .gradient-1 {
+    width: 600px; height: 600px;
+    background: var(--ink);
+    top: -200px; right: -150px;
+    animation: float-glow 12s ease-in-out infinite alternate;
+  }
+  .bg-canvas .gradient-2 {
+    width: 400px; height: 400px;
+    background: #a8a39a;
+    bottom: 10%; left: -100px;
+    animation: float-glow 16s ease-in-out infinite alternate-reverse;
+  }
+  .bg-canvas .gradient-3 {
+    width: 300px; height: 300px;
+    background: var(--ink);
+    top: 40%; right: 30%;
+    opacity: 0.06;
+    animation: float-glow 20s ease-in-out infinite alternate;
+  }
+  @keyframes float-glow {
+    0%   { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(40px, -30px) scale(1.15); }
+  }
+
+  /* ─── Grid Lines ─────────────────── */
+  .grid-lines {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.03;
+    background-image:
+      linear-gradient(rgba(232,230,223,0.15) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(232,230,223,0.15) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  /* ─── Floating Nodes ─────────────────── */
+  .nodes {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .node {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(232,230,223,0.08);
+  }
+  .node-dot {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(232,230,223,0.15);
+  }
+  .node-1 {
+    width: 180px; height: 180px;
+    top: 18%; right: 12%;
+    animation: pulse-node 8s ease-in-out infinite;
+  }
+  .node-1 .node-dot {
+    width: 6px; height: 6px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(232,230,223,0.4);
+    box-shadow: 0 0 16px rgba(232,230,223,0.2);
+  }
+  .node-2 {
+    width: 100px; height: 100px;
+    top: 55%; right: 25%;
+    animation: pulse-node 12s ease-in-out infinite reverse;
+  }
+  .node-2 .node-dot {
+    width: 4px; height: 4px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(232,230,223,0.3);
+    box-shadow: 0 0 12px rgba(232,230,223,0.15);
+  }
+  .node-3 {
+    width: 240px; height: 240px;
+    top: 8%; right: 35%;
+    animation: pulse-node 14s ease-in-out infinite 2s;
+  }
+  .node-3 .node-dot {
+    width: 5px; height: 5px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(232,230,223,0.25);
+    box-shadow: 0 0 14px rgba(232,230,223,0.15);
+  }
+  @keyframes pulse-node {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50%      { transform: scale(1.12); opacity: 1; }
+  }
+
+  /* ─── Header / Nav ─────────────────── */
+  header {
+    position: relative;
+    z-index: 10;
+    padding: 24px 0;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo-link {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    text-decoration: none;
+    gap: 10px;
     border: none;
     color: var(--ink);
     line-height: 0;
   }
-  .logo:hover { opacity: 0.92; }
+  .logo-link:hover { opacity: 0.92; }
   .logo-mark {
-    width: clamp(88px, 10vw, 124px);
-    height: auto;
-    display: block;
+    width: 32px;
+    height: 32px;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 14px;
+    color: var(--muted);
+    border: none;
+    letter-spacing: 0.01em;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 20px;
+    border: 1px solid var(--dim);
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    background: transparent;
+    cursor: pointer;
+    transition: background .2s, border-color .2s;
+    line-height: 1;
+  }
+  .nav-cta:hover {
+    background: rgba(232,230,223,0.06);
+    border-color: var(--muted);
+  }
+  .nav-cta svg {
+    width: 14px;
+    height: 14px;
+    transition: transform .2s;
+  }
+  .nav-cta:hover svg { transform: translateX(2px); }
+
+  /* ─── Mobile nav ─────────────────── */
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--ink);
+    cursor: pointer;
+    padding: 4px;
+  }
+  .nav-toggle svg { width: 24px; height: 24px; display: block; }
+
+  /* ─── Hero ──────────────────────────── */
+  main { position: relative; z-index: 1; }
+  .hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: calc(100vh - 88px);
+    padding: 60px 0 80px;
+  }
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+    width: 100%;
+  }
+  .hero-content { max-width: 580px; }
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  /* ── Hero ──────────────────────────── */
-  main { padding: 0; }
-  .hero { padding: 120px 0 96px; }
-  h1 {
+  /* Tagline pill */
+  .tagline-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    border: 1px solid rgba(232,230,223,0.1);
+    border-radius: 100px;
+    font-size: 12px;
     font-weight: 500;
-    font-size: clamp(34px, 6vw, 52px);
-    line-height: 1.12;
-    letter-spacing: -0.025em;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: rgba(232,230,223,0.04);
+    backdrop-filter: blur(4px);
+    margin-bottom: 28px;
+  }
+  .tagline-pill svg {
+    width: 14px;
+    height: 14px;
+    opacity: 0.8;
+  }
+
+  .hero h1 {
+    font-weight: 500;
+    font-size: clamp(40px, 5.5vw, 68px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
     text-wrap: balance;
-    max-width: 16ch;
   }
   .hero p {
-    margin-top: 28px;
-    font-size: clamp(16px, 2.4vw, 19px);
+    margin-top: 24px;
+    font-size: clamp(15px, 1.6vw, 18px);
     color: var(--muted);
-    max-width: 46ch;
+    max-width: 44ch;
     text-wrap: pretty;
-    line-height: 1.65;
+    line-height: 1.7;
+  }
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    border-radius: 100px;
+    background: var(--ink);
+    color: var(--bg);
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: opacity .2s, transform .2s;
+    line-height: 1;
+  }
+  .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+  .btn-primary svg {
+    width: 14px;
+    height: 14px;
+    transition: transform .2s;
+  }
+  .btn-primary:hover svg { transform: translateX(3px); }
+
+  /* Social proof */
+  .social-proof {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 36px;
+  }
+  .avatar-stack {
+    display: flex;
+    margin-right: 4px;
+  }
+  .avatar-stack span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--bg);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-left: -8px;
+  }
+  .avatar-stack span:first-child { margin-left: 0; }
+  .avatar-1 { background: linear-gradient(135deg, #595550, #3a3835); }
+  .avatar-2 { background: linear-gradient(135deg, #8a877e, #595550); }
+  .avatar-3 { background: linear-gradient(135deg, #a8a39a, #8a877e); }
+  .social-proof-text {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .social-proof-text strong { color: var(--ink); font-weight: 500; }
+
+  /* Hero visual — abstract tech ring */
+  .hero-ring {
+    position: relative;
+    width: 380px;
+    height: 380px;
+  }
+  .hero-ring-svg {
+    width: 100%;
+    height: 100%;
+    animation: spin-ring 30s linear infinite;
+  }
+  @keyframes spin-ring {
+    to { transform: rotate(360deg); }
+  }
+  .hero-ring-dot {
+    position: absolute;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--ink);
+    box-shadow: 0 0 24px rgba(232,230,223,0.25);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    animation: breathe-dot 4s ease-in-out infinite;
+  }
+  @keyframes breathe-dot {
+    0%, 100% { box-shadow: 0 0 24px rgba(232,230,223,0.2); scale: 1; }
+    50%      { box-shadow: 0 0 48px rgba(232,230,223,0.4); scale: 1.3; }
+  }
+  .ring-orbit {
+    position: absolute;
+    border: 1px solid rgba(232,230,223,0.06);
+    border-radius: 50%;
+  }
+  .ring-orbit-1 {
+    width: 280px; height: 280px;
+    top: calc(50% - 140px); left: calc(50% - 140px);
+    animation: spin-ring 20s linear infinite reverse;
+  }
+  .ring-orbit-2 {
+    width: 200px; height: 200px;
+    top: calc(50% - 100px); left: calc(50% - 100px);
+    animation: spin-ring 15s linear infinite;
+  }
+  .orbit-dot-1, .orbit-dot-2 {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(232,230,223,0.15);
+  }
+  .orbit-dot-1 {
+    width: 4px; height: 4px;
+    top: -2px; left: 50%;
+    transform: translateX(-50%);
+  }
+  .orbit-dot-2 {
+    width: 3px; height: 3px;
+    top: 50%; right: -1.5px;
+    transform: translateY(-50%);
   }
 
-  /* ── Divider ───────────────────────── */
-  .rule { border: none; border-top: 1px solid var(--line); }
+  /* ─── Bottom hero text ──────────── */
+  .hero-bottom {
+    position: absolute;
+    bottom: 32px;
+    left: 32px;
+    right: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .hero-bottom p {
+    font-size: 13px;
+    color: var(--dim);
+    max-width: 48ch;
+    line-height: 1.6;
+  }
 
-  /* ── Sections ──────────────────────── */
-  section { padding: 72px 0; }
+  /* ─── Sections ──────────────────────── */
+  section { padding: 80px 0; }
   h2 {
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--muted);
-    margin-bottom: 36px;
+    margin-bottom: 40px;
   }
 
   /* How we operate */
-  .tenets { display: grid; gap: 36px; }
+  .tenets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+  .tenet {
+    padding: 32px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--surface);
+    transition: border-color .3s;
+  }
+  .tenet:hover { border-color: var(--dim); }
+  .tenet-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 16px;
+    opacity: 0.5;
+  }
   .tenet h3 {
     font-weight: 500;
-    font-size: 21px;
+    font-size: 19px;
     letter-spacing: -0.015em;
     margin-bottom: 8px;
     color: var(--ink);
   }
-  .tenet p { color: var(--muted); max-width: 50ch; text-wrap: pretty; font-size: 16px; }
+  .tenet p { color: var(--muted); font-size: 15px; line-height: 1.6; text-wrap: pretty; }
 
   /* Contact */
-  .contact p { color: var(--muted); max-width: 52ch; font-size: 16px; }
-
-  /* Social links */
+  .contact { text-align: center; }
+  .contact p { color: var(--muted); font-size: 16px; }
+  .contact a { color: var(--ink); border-bottom: 1px solid var(--dim); }
+  .contact a:hover { border-color: var(--ink); }
   .social {
     display: flex;
-    gap: 24px;
+    gap: 32px;
+    justify-content: center;
     flex-wrap: wrap;
-    margin-top: 16px;
+    margin-top: 24px;
     padding: 0;
     list-style: none;
   }
-  .social li { font-size: 15px; color: var(--muted); }
-  .social a { color: var(--ink); }
+  .social li { font-size: 14px; color: var(--muted); }
+  .social a { color: var(--ink); border: none; }
+
+  /* ── Divider ───────────────────────── */
+  .rule { border: none; border-top: 1px solid var(--line); }
 
   /* ── Footer ────────────────────────── */
-  footer { padding: 64px 0 56px; border-top: 1px solid var(--line); }
+  footer { padding: 48px 0 40px; border-top: 1px solid var(--line); }
   footer .wrap { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
   footer p { font-size: 13px; color: var(--muted); }
-  footer a { color: var(--muted); border-bottom: none; }
+  footer a { color: var(--muted); border: none; }
   footer a:hover { color: var(--ink); }
 
   /* ── Animations ────────────────────── */
   @media (prefers-reduced-motion: no-preference) {
-    .hero h1, .hero p { animation: rise .7s ease both; }
-    .hero p { animation-delay: .12s; }
+    .tagline-pill, .hero h1, .hero p, .hero-actions, .social-proof, .hero-bottom {
+      animation: rise .7s ease both;
+    }
+    .hero h1 { animation-delay: 0.05s; }
+    .hero p { animation-delay: 0.1s; }
+    .hero-actions { animation-delay: 0.15s; }
+    .social-proof { animation-delay: 0.2s; }
+    .hero-bottom { animation-delay: 0.25s; }
+    .hero-visual { animation: fade-in 1s ease 0.3s both; }
+    .tenet { animation: rise .5s ease both; }
+    .tenet:nth-child(1) { animation-delay: 0.1s; }
+    .tenet:nth-child(2) { animation-delay: 0.2s; }
+    .tenet:nth-child(3) { animation-delay: 0.3s; }
     @keyframes rise {
-      from { opacity: 0; transform: translateY(10px); }
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: none; }
+    }
+    @keyframes fade-in {
+      from { opacity: 0; transform: scale(0.95); }
       to   { opacity: 1; transform: none; }
     }
   }
 
   /* ── Mobile ────────────────────────── */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-content { max-width: 100%; }
+    .hero-visual { display: none; }
+    .hero { min-height: auto; padding: 40px 0 60px; }
+    .hero-bottom { position: static; padding: 24px 0 0; }
+    .tenets { grid-template-columns: 1fr; gap: 24px; }
+    .nav-links { display: none; }
+    .nav-toggle { display: block; }
+    .nav-links.mobile-open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--bg);
+      padding: 20px 32px;
+      gap: 16px;
+      border-bottom: 1px solid var(--line);
+      z-index: 100;
+    }
+    header { position: relative; }
+  }
   @media (max-width: 600px) {
-    .hero { padding: 72px 0 64px; }
-    section { padding: 52px 0; }
+    .wrap { padding: 0 20px; }
+    .hero h1 { font-size: clamp(32px, 8vw, 44px); }
+    .hero { padding: 20px 0 40px; }
+    .hero-bottom p { font-size: 12px; }
+    section { padding: 56px 0; }
+    .tenet { padding: 24px; }
   }
 </style>
-  <!-- Sentry error monitoring -->
-  <script src="https://js.sentry-cdn.com/da46838d20890e5373b0fd955baf37be.min.js" crossorigin="anonymous"></script>
+<!-- Sentry error monitoring -->
+<script src="https://js.sentry-cdn.com/da46838d20890e5373b0fd955baf37be.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
+<!-- Background canvas -->
+<div class="bg-canvas">
+  <div class="gradient gradient-1"></div>
+  <div class="gradient gradient-2"></div>
+  <div class="gradient gradient-3"></div>
+</div>
+<div class="grid-lines"></div>
+<div class="nodes">
+  <div class="node node-1"><div class="node-dot"></div></div>
+  <div class="node node-2"><div class="node-dot"></div></div>
+  <div class="node node-3"><div class="node-dot"></div></div>
+</div>
+
 <header>
   <div class="wrap">
-    <!-- LoopXXI logo -->
-    <a href="/" class="logo" aria-label="LoopXXI home">
-      <img class="logo-mark" src="/LoopXXI-Logo.png" alt="LoopXXI logo" />
-    </a>
+    <nav>
+      <a href="/" class="logo-link" aria-label="LoopXXI home">
+        <svg class="logo-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="16" stroke="#e8e6df" stroke-width="6" stroke-linecap="round" stroke-dasharray="88 12" stroke-dashoffset="-3"/>
+          <circle cx="32" cy="32" r="5" fill="#e8e6df"/>
+        </svg>
+        <span class="wordmark">Loop<span class="xxI">XXI</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#how">How we operate</a></li>
+        <li><a href="#contact">Connect</a></li>
+        <li><a href="/brand.html">Brand</a></li>
+        <li>
+          <a href="mailto:business@loopxxi.com" class="nav-cta">
+            Get in touch
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+          </a>
+        </li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('navLinks').classList.toggle('mobile-open')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </nav>
   </div>
 </header>
 
 <main>
-  <div class="wrap">
-    <div class="hero">
-      <h1>Technology that compounds.</h1>
-      <p>LoopXXI is a technology holding company. We build AI-powered software products and operate a portfolio of assets designed to generate recursive, compounding value.</p>
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="tagline-pill">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg>
+            Technology Holding Company
+          </div>
+          <h1>Technology that compounds.</h1>
+          <p>We build AI-powered software products and operate a portfolio of assets designed to generate recursive, compounding value.</p>
+          <div class="hero-actions">
+            <a href="mailto:business@loopxxi.com" class="btn-primary">
+              Start a conversation
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+          <div class="social-proof">
+            <div class="avatar-stack">
+              <span class="avatar-1">P</span>
+              <span class="avatar-2">L</span>
+              <span class="avatar-3">S</span>
+            </div>
+            <div class="social-proof-text">
+              Building from <strong>Los Angeles</strong> &middot; Live since 2026
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-ring">
+            <svg class="hero-ring-svg" viewBox="0 0 380 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Outer ring -->
+              <circle cx="190" cy="190" r="160" stroke="rgba(232,230,223,0.08)" stroke-width="1"/>
+              <circle cx="190" cy="190" r="160" stroke="rgba(232,230,223,0.12)" stroke-width="0.5" stroke-dasharray="4 8"/>
+              <!-- Mid ring -->
+              <circle cx="190" cy="190" r="120" stroke="rgba(232,230,223,0.06)" stroke-width="1"/>
+              <!-- Dashed arc segment (compounding) -->
+              <path d="M 190 30 A 160 160 0 0 1 350 190" stroke="rgba(232,230,223,0.15)" stroke-width="1.5" stroke-dasharray="6 6" fill="none"/>
+              <path d="M 350 190 A 160 160 0 0 1 30 190" stroke="rgba(232,230,223,0.06)" stroke-width="1" stroke-dasharray="3 9" fill="none"/>
+              <!-- Orbit particles -->
+              <circle cx="190" cy="30" r="3" fill="rgba(232,230,223,0.2)"/>
+              <circle cx="350" cy="190" r="2" fill="rgba(232,230,223,0.15)"/>
+              <circle cx="190" cy="350" r="2.5" fill="rgba(232,230,223,0.1)"/>
+              <!-- Connecting lines -->
+              <line x1="190" y1="30" x2="190" y2="190" stroke="rgba(232,230,223,0.04)" stroke-width="1"/>
+              <line x1="350" y1="190" x2="190" y2="350" stroke="rgba(232,230,223,0.03)" stroke-width="1"/>
+            </svg>
+            <div class="hero-ring-dot"></div>
+            <div class="ring-orbit ring-orbit-1"><div class="orbit-dot-1"></div></div>
+            <div class="ring-orbit ring-orbit-2"><div class="orbit-dot-2"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bottom">
+      <p>Building AI-powered software, operating autonomous agents, and compounding value across products and treasury.</p>
+      <!-- Right side — could add stats/metrics later -->
     </div>
   </div>
 
@@ -201,14 +704,25 @@
       <h2 id="how">How we operate</h2>
       <div class="tenets">
         <div class="tenet">
+          <svg class="tenet-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="18" height="18" rx="2" stroke="#e8e6df" stroke-width="1.5"/>
+            <path d="M8 12l2 2 4-4" stroke="#e8e6df" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
           <h3>Software over services.</h3>
           <p>We build products — not consulting hours. Code ships once and earns indefinitely. We favor SaaS, APIs, and autonomous tooling over linear labor.</p>
         </div>
         <div class="tenet">
+          <svg class="tenet-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z" stroke="#e8e6df" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
           <h3>AI-first operations.</h3>
           <p>Autonomous agents run our recurring workflows. We build AI into the product loop, not as a feature — as the operating layer itself.</p>
         </div>
         <div class="tenet">
+          <svg class="tenet-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10" stroke="#e8e6df" stroke-width="1.5"/>
+            <path d="M12 6v6l4 2" stroke="#e8e6df" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
           <h3>Long-horizon assets.</h3>
           <p>Every product, every relationship, every line of code is an asset. We keep them, maintain them, and let compounding do the heavy lifting.</p>
         </div>
@@ -234,7 +748,7 @@
 <footer>
   <div class="wrap">
     <p>© <span id="y">2026</span> Loop21 LLC</p>
-    <p>Technology · Software · AI</p>
+    <p>Los Angeles · Technology · Software · AI</p>
   </div>
 </footer>
 

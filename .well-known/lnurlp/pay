@@ -1,0 +1,10 @@
+{
+  "status": "OK",
+  "tag": "payRequest",
+  "callback": "https://loopxxi-hub-production.up.railway.app/api/lnurlp/pay/callback",
+  "metadata": "[[\"text/identifier\",\"pay@loopxxi.com\"],[\"text/plain\",\"Sats for LoopXXI\"]]",
+  "minSendable": 1000,
+  "maxSendable": 11000000000,
+  "commentAllowed": 255,
+  "allowsNostr": false
+}

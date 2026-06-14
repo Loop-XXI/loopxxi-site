@@ -351,6 +351,101 @@
   }
   .btn-primary:hover svg { transform: translateX(3px); }
 
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 100px;
+    background: transparent;
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid var(--line);
+    cursor: pointer;
+    transition: border-color .2s, transform .2s;
+    line-height: 1;
+    text-decoration: none;
+  }
+  .btn-ghost:hover { border-color: var(--ink); transform: translateY(-1px); }
+  .btn-ghost svg { width: 14px; height: 14px; opacity: 0.8; }
+
+  /* Tip section */
+  .tip-section {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 40px;
+    margin: 0 auto;
+    max-width: 760px;
+  }
+  .tip-section h2 { margin-bottom: 16px; }
+  .tip-lede {
+    font-size: 16px;
+    color: var(--muted);
+    margin-bottom: 24px;
+    line-height: 1.7;
+    max-width: 56ch;
+  }
+  .tip-offer-box {
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+  .tip-offer-box input {
+    flex: 1 1 320px;
+    min-width: 0;
+    padding: 12px 14px;
+    background: var(--bg);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12px;
+    overflow-x: auto;
+  }
+  .tip-buttons { display: flex; gap: 8px; }
+  .tip-btn {
+    padding: 12px 18px;
+    border-radius: 8px;
+    background: var(--ink);
+    color: var(--bg);
+    font-size: 13px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    transition: opacity .2s;
+  }
+  .tip-btn:hover { opacity: 0.9; }
+  .tip-btn.secondary {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--line);
+  }
+  .tip-btn.secondary:hover { border-color: var(--ink); }
+  .tip-meta {
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--dim);
+    line-height: 1.6;
+  }
+  .tip-meta a { color: var(--muted); }
+  .tip-rail-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
   /* Hero visual — brand logo */
   .hero-logo {
     display: flex;
@@ -572,6 +667,10 @@
               Start a conversation
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
+            <a href="#tip" class="btn-ghost">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+              Send sats
+            </a>
           </div>
 
         </div>
@@ -624,6 +723,39 @@
   <hr class="rule">
 
   <div class="wrap">
+    <section id="tip" aria-labelledby="tip-heading">
+      <div class="tip-section">
+        <h2 id="tip-heading">Send sats to the loop</h2>
+        <p class="tip-lede">Loop XXI runs on its own treasury. If something we shipped — code, an index, a tool — saved you time, drop a few sats. Two ways: any wallet via the Lightning address, or a BOLT12 offer for sovereign wallets. Settles direct to our node.</p>
+        <div class="tip-rail">
+          <div class="tip-rail-label">Lightning Address</div>
+          <div class="tip-offer-box">
+            <input id="lnaddr" readOnly value="pay@loopxxi.com" aria-label="Lightning address" />
+            <div class="tip-buttons">
+              <a class="tip-btn" href="lightning:pay@loopxxi.com">Open in wallet</a>
+              <button class="tip-btn secondary" id="copy-lnaddr" type="button">Copy</button>
+            </div>
+          </div>
+          <p class="tip-meta">Works in any Lightning wallet — Wallet of Satoshi, Phoenix, Strike, Cash App, etc.</p>
+        </div>
+        <div class="tip-rail" style="margin-top:24px">
+          <div class="tip-rail-label">BOLT12 Offer (reusable)</div>
+        <div class="tip-offer-box">
+          <input id="bolt12-offer" readOnly value="lno1zrxq8pjw7qjlm68mtp7e3yvxee4y5xrgjhhyf2fxhlphpckrvevh50u0qt9z5663l7xhwce70p83yrnqmx7hx7jsns0z67qh5g4ajc5rcam6zqsresyucd3d8cps7kvunh9daw6mp5hew454e676dcnfzx4jpddq4lkqqv7stuk0g8q284zlrf8488drlzeywu9v5qz8pn34r38esfd8nakdjyuz7aw3ef0ac9tqhdmghe8vrd0r04fkqgz50nrcc60dsn6mwwcq4ye73q5msv0vlzjafs92dsg26nm9k0k5kqqsev35suv8skzeprn7quj47hwjfu" aria-label="BOLT12 offer" />
+          <div class="tip-buttons">
+            <a class="tip-btn" id="open-wallet" href="lightning:lno1zrxq8pjw7qjlm68mtp7e3yvxee4y5xrgjhhyf2fxhlphpckrvevh50u0qt9z5663l7xhwce70p83yrnqmx7hx7jsns0z67qh5g4ajc5rcam6zqsresyucd3d8cps7kvunh9daw6mp5hew454e676dcnfzx4jpddq4lkqqv7stuk0g8q284zlrf8488drlzeywu9v5qz8pn34r38esfd8nakdjyuz7aw3ef0ac9tqhdmghe8vrd0r04fkqgz50nrcc60dsn6mwwcq4ye73q5msv0vlzjafs92dsg26nm9k0k5kqqsev35suv8skzeprn7quj47hwjfu">Open in wallet</a>
+            <button class="tip-btn secondary" id="copy-offer" type="button">Copy offer</button>
+          </div>
+        </div>
+          <p class="tip-meta">Reusable Phoenix-backed BOLT12. No invoice expiration, no custodian. <a href="https://bolt12-tools.vercel.app" rel="noopener">Inspect the offer</a>.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <hr class="rule">
+
+  <div class="wrap">
     <section class="contact" aria-labelledby="contact">
       <h2 id="contact">Connect</h2>
       <p>Working on something that fits? <a href="mailto:business@loopxxi.com">business@loopxxi.com</a></p>
@@ -646,6 +778,23 @@
   </div>
 </footer>
 
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+  function wireCopy(btnId, inpId){
+    var btn = document.getElementById(btnId);
+    var inp = document.getElementById(inpId);
+    if (!btn || !inp) return;
+    var orig = btn.textContent;
+    btn.addEventListener('click', function(){
+      try {
+        navigator.clipboard.writeText(inp.value);
+        btn.textContent = 'Copied';
+        setTimeout(function(){ btn.textContent = orig; }, 1800);
+      } catch (e) { inp.select(); }
+    });
+  }
+  wireCopy('copy-offer', 'bolt12-offer');
+  wireCopy('copy-lnaddr', 'lnaddr');
+</script>
 </body>
 </html>

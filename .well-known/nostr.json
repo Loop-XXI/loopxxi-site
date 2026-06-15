@@ -1,12 +1,14 @@
 {
   "names": {
-    "loop": "f346370e32368b5f8e8b353bbe643c812fde62b23f09d54a550ae93f114eb26a"
+    "loop": "51096f5ab3f86aa11fd661e241f7bd8e0f25e3a0e446b8f2a71a6b818d5461d0",
+    "_": "51096f5ab3f86aa11fd661e241f7bd8e0f25e3a0e446b8f2a71a6b818d5461d0"
   },
   "relays": {
-    "f346370e32368b5f8e8b353bbe643c812fde62b23f09d54a550ae93f114eb26a": [
+    "51096f5ab3f86aa11fd661e241f7bd8e0f25e3a0e446b8f2a71a6b818d5461d0": [
       "wss://relay.damus.io",
-      "wss://nostr-pub.wellorder.net",
-      "wss://nos.lol"
+      "wss://nos.lol",
+      "wss://relay.snort.social",
+      "wss://relay.primal.net"
     ]
   }
 }

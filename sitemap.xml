@@ -4,4 +4,12 @@
     <loc>https://loopxxi.com/</loc>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://loopxxi.com/first-loop</loc>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://loopxxi.com/brand</loc>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>

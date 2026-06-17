@@ -12,7 +12,7 @@ status, metrics, timelines — that fact must be traceable to a source you can c
 before you hit publish.
 
 *Examples of failure:* "Building from Los Angeles" (incorrect — entity is an
-Illinois LLC based in Chicago). "Trusted by 15+ industry leaders" (fabricated).
+PENDING_LEGAL_ENTITY_NAME based in PENDING_LEGAL_ENTITY_LOCATION). "Trusted by 15+ industry leaders" (fabricated).
 "Live since 2026" (true but unhelpful — see check 3).
 
 ### 2. No fabricated social proof
@@ -24,9 +24,9 @@ LoopXXI.
 *This includes:* avatar stacks, customer logos, testimonial quotes, partner badges,
 "backed by" claims, "also used by" mentions.
 
-### 3. The post plausibly advances sats accumulation
-A post should move a needle that matters. Before posting, ask: *does this
-plausibly generate a new user, partner, customer, or sats?*
+### 3. The post plausibly advances the operating loop
+A post should move a needle that matters. Before posting, ask whether it
+plausibly creates a new user, partner, customer, or useful operating signal.
 
 Internal milestones ("we shipped a redesign", "we refactored the stack") default
 to **not posting** — they fail check 3. Exceptions require explicit approval from

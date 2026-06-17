@@ -80,47 +80,10 @@ def save_card(path, size, mode):
         d.text((420, 76), "Time is part of the machine.", font=font(42, True), fill=BONE)
         d.text((422, 138), "feedback · persistence · compounding", font=font(20), fill=MUTED)
 
-    elif mode == "gateway":
-        paste_contained(base, mark, (60, 50, 84, 84))
-        d.text((170, 58), "What is Loop Gateway?", font=font(48, True), fill=BONE)
-        d.text((172, 122), "AI model access for agent operators.", font=font(24), fill=MUTED)
-        items = [
-            ("1", "Pay sats", "Top up once over Lightning."),
-            ("2", "Get bearer credit", "No account, card, or per-call invoice wait."),
-            ("3", "Call 300+ models", "Use any OpenAI SDK with one base URL."),
-        ]
-        y = 230
-        for n, head, body in items:
-            d.ellipse((74, y + 6, 126, y + 58), outline=GOLD, width=2)
-            d.text((93, y + 16), n, font=font(24, True), fill=GOLD)
-            d.text((154, y), head, font=font(30, True), fill=BONE)
-            d.text((154, y + 42), body, font=font(22), fill=MUTED)
-            y += 135
-        d.text((72, h - 78), "L402 · Lightning · OpenAI-compatible", font=font(22), fill=DIM)
-
-    elif mode == "agentready":
-        paste_contained(base, mark, (60, 50, 84, 84))
-        d.text((170, 58), "What is agentready?", font=font(48, True), fill=BONE)
-        d.text((172, 122), "AI code fixes, paid in sats.", font=font(24), fill=MUTED)
-        items = [
-            ("Send a repo or issue", "Agentready audits the surface and finds the fix path."),
-            ("Pay sats", "A clean Lightning payment gates the work."),
-            ("Receive code fixes", "Small patches, ready for review, with the failure explained."),
-        ]
-        y = 235
-        for head, body in items:
-            d.rounded_rectangle((72, y, w - 72, y + 94), radius=20, fill=SURFACE, outline=(35, 34, 31), width=1)
-            d.text((108, y + 18), head, font=font(27, True), fill=BONE)
-            d.text((108, y + 54), body, font=font(19), fill=MUTED)
-            y += 118
-        d.text((72, h - 78), "agent operators · code repair · Lightning settlement", font=font(22), fill=DIM)
-
     base.convert("RGB").save(OUT / path, quality=95)
 
 
 save_card("loopxxi-og-card.png", (1200, 630), "parent-og")
 save_card("loopxxi-nostr-banner.png", (1500, 500), "banner")
-save_card("loop-gateway-explainer.png", (1080, 1080), "gateway")
-save_card("agentready-explainer.png", (1080, 1080), "agentready")
 
 print("generated", sorted(p.name for p in OUT.glob("*.png")))

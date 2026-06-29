@@ -843,91 +843,8 @@
       <h2 id="products-label">Products</h2>
       <div class="products-grid">
 
-        <!-- Loop Gateway — featured full-width -->
-        <article class="product-card product-card--featured product-card--gateway">
-          <div class="product-icon product-icon--gateway" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="2" y="4" width="8" height="18" rx="1.5" stroke="#f7931a" stroke-width="1.5"/>
-              <rect x="16" y="4" width="8" height="18" rx="1.5" stroke="#f7931a" stroke-width="1.5"/>
-              <path d="M10 4 Q10 1.5 13 1.5 Q16 1.5 16 4" stroke="#f7931a" stroke-width="1.5" fill="none"/>
-              <path d="M14.5 9.5 L11 15 L13 15 L11 20.5 L17 13.5 L14.5 13.5 L17 9.5Z" fill="#f7931a"/>
-            </svg>
-          </div>
-          <div class="product-body">
-            <div class="status-dot status-dot--live"><span class="dot"></span>Live</div>
-            <div class="product-name">Loop Gateway</div>
-            <div class="product-sub">Pay-per-prompt AI access</div>
-            <p class="product-desc">An OpenAI-compatible API proxy that charges per prompt over Lightning. Send a request, receive an HTTP 402 payment challenge, pay in sats, get your completion. No subscriptions, no accounts. Supports fiat credit packs for humans and raw L402 for agents. 300+ models via OpenRouter.</p>
-            <div class="product-tags">
-              <span class="tag tag--btc">Bitcoin</span>
-              <span class="tag tag--ln">L402</span>
-              <span class="tag">OpenAI Compatible</span>
-              <span class="tag">300+ Models</span>
-              <span class="tag">Zero KYC</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- SubAgent Wallets -->
-        <article class="product-card product-card--subagent">
-          <div class="product-icon product-icon--subagent" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="13" cy="13" r="4" stroke="#a78bfa" stroke-width="1.5"/>
-              <circle cx="4" cy="7" r="2.5" stroke="#a78bfa" stroke-width="1.25"/>
-              <circle cx="22" cy="7" r="2.5" stroke="#a78bfa" stroke-width="1.25"/>
-              <circle cx="4" cy="19" r="2.5" stroke="#a78bfa" stroke-width="1.25"/>
-              <circle cx="22" cy="19" r="2.5" stroke="#a78bfa" stroke-width="1.25"/>
-              <line x1="9.5" y1="11" x2="6.2" y2="8.8" stroke="#a78bfa" stroke-width="1" opacity="0.6"/>
-              <line x1="16.5" y1="11" x2="19.8" y2="8.8" stroke="#a78bfa" stroke-width="1" opacity="0.6"/>
-              <line x1="9.5" y1="15" x2="6.2" y2="17.2" stroke="#a78bfa" stroke-width="1" opacity="0.6"/>
-              <line x1="16.5" y1="15" x2="19.8" y2="17.2" stroke="#a78bfa" stroke-width="1" opacity="0.6"/>
-              <path d="M14.5 11 L12 14.5 L13.5 14.5 L12 18 L16 13 L14 13 L16 11Z" fill="#a78bfa" opacity="0.85"/>
-            </svg>
-          </div>
-          <div class="product-body">
-            <div class="status-dot status-dot--live"><span class="dot"></span>Live</div>
-            <div class="product-name">SubAgent Wallets</div>
-            <div class="product-sub">Lightning wallets for AI fleets</div>
-            <p class="product-desc">Non-custodial Lightning wallets with macaroon delegation. Every agent in your fleet gets its own spending identity, budget cap, and cryptographic permission scope — without touching the master key.</p>
-            <div class="product-tags">
-              <span class="tag tag--ln">Macaroons</span>
-              <span class="tag tag--ln">Lightning</span>
-              <span class="tag">Non-Custodial</span>
-              <span class="tag">AI-Native</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Loop Receive -->
-        <article class="product-card product-card--receive">
-          <div class="product-icon product-icon--receive" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="2" y="2" width="7" height="7" rx="1" stroke="#14b8a6" stroke-width="1.5"/>
-              <rect x="3.5" y="3.5" width="4" height="4" rx="0.5" fill="#14b8a6"/>
-              <rect x="17" y="2" width="7" height="7" rx="1" stroke="#14b8a6" stroke-width="1.5"/>
-              <rect x="18.5" y="3.5" width="4" height="4" rx="0.5" fill="#14b8a6"/>
-              <rect x="2" y="17" width="7" height="7" rx="1" stroke="#14b8a6" stroke-width="1.5"/>
-              <rect x="3.5" y="18.5" width="4" height="4" rx="0.5" fill="#14b8a6"/>
-              <path d="M19 16 L16 20.5 L18 20.5 L16 25 L22 19.5 L20 19.5 L22 16Z" fill="#14b8a6"/>
-              <rect x="12" y="12" width="3" height="3" rx="0.5" fill="#14b8a6" opacity="0.4"/>
-            </svg>
-          </div>
-          <div class="product-body">
-            <div class="status-dot status-dot--live"><span class="dot"></span>Live</div>
-            <div class="product-name">Loop Receive</div>
-            <div class="product-sub">Three-line Bitcoin receive widget</div>
-            <p class="product-desc">Drop three lines into any site and instantly accept on-chain, Lightning (BOLT12), and passkey-authenticated payments in a single unified QR. Per-tenant Phoenixd nodes. Zero custody.</p>
-            <div class="product-tags">
-              <span class="tag tag--btc">BIP21</span>
-              <span class="tag tag--teal">BOLT12</span>
-              <span class="tag">Passkey Auth</span>
-              <span class="tag">Embeddable</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Loop MCP Proxy -->
-        <article class="product-card product-card--mcp">
+        <!-- loop-mcp — featured full-width (flagship live revenue product) -->
+        <article class="product-card product-card--featured product-card--mcp">
           <div class="product-icon product-icon--mcp" aria-hidden="true">
             <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="3" y="3" width="20" height="6" rx="1.5" stroke="#22c55e" stroke-width="1.5"/>
@@ -941,40 +858,40 @@
             </svg>
           </div>
           <div class="product-body">
-            <div class="status-dot status-dot--beta"><span class="dot"></span>Beta</div>
-            <div class="product-name">Loop MCP Proxy</div>
-            <div class="product-sub">Monetize any MCP server instantly</div>
-            <p class="product-desc">A reverse proxy that wraps any Model Context Protocol server with an L402 Lightning paywall. Set a price per tool call and watch agents pay autonomously — zero code changes on the server side.</p>
+            <div class="status-dot status-dot--live"><span class="dot"></span>Live</div>
+            <div class="product-name">loop-mcp</div>
+            <div class="product-sub">Paid tools for autonomous AI agents</div>
+            <p class="product-desc">An L402-native MCP server where AI agents pay per tool call — 10 to 25 sats over Lightning, or fiat-funded credits via Stripe. Four live Bitcoin and Lightning tools: price, send-or-wait fee decisions, Lightning Address resolution, and transaction analysis. Payment is the credential: no API keys, no accounts. The first MCP server on the official Registry that charges agents directly.</p>
             <div class="product-tags">
               <span class="tag tag--green">MCP</span>
               <span class="tag tag--ln">L402</span>
-              <span class="tag">Agent Commerce</span>
-              <span class="tag">Zero Config</span>
+              <span class="tag tag--btc">Bitcoin</span>
+              <span class="tag">Dual Payment</span>
+              <span class="tag">Agent Economy</span>
             </div>
           </div>
         </article>
 
-        <!-- Trend Relay -->
-        <article class="product-card product-card--relay">
-          <div class="product-icon product-icon--relay" aria-hidden="true">
+        <!-- Loop Gateway -->
+        <article class="product-card product-card--gateway">
+          <div class="product-icon product-icon--gateway" aria-hidden="true">
             <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <polyline points="2,20 7,15 12,17 17,9 23,4" stroke="#d4a520" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="2" cy="20" r="1.5" fill="#d4a520"/>
-              <circle cx="12" cy="17" r="1.5" fill="#d4a520" opacity="0.5"/>
-              <circle cx="23" cy="4" r="2" fill="#d4a520"/>
-              <path d="M25.5 2 Q27 4 25.5 6" stroke="#d4a520" stroke-width="1.25" stroke-linecap="round" fill="none" opacity="0.7"/>
-              <line x1="2" y1="23" x2="22" y2="23" stroke="#d4a520" stroke-width="1" opacity="0.25"/>
+              <rect x="2" y="4" width="8" height="18" rx="1.5" stroke="#f7931a" stroke-width="1.5"/>
+              <rect x="16" y="4" width="8" height="18" rx="1.5" stroke="#f7931a" stroke-width="1.5"/>
+              <path d="M10 4 Q10 1.5 13 1.5 Q16 1.5 16 4" stroke="#f7931a" stroke-width="1.5" fill="none"/>
+              <path d="M14.5 9.5 L11 15 L13 15 L11 20.5 L17 13.5 L14.5 13.5 L17 9.5Z" fill="#f7931a"/>
             </svg>
           </div>
           <div class="product-body">
             <div class="status-dot status-dot--live"><span class="dot"></span>Live</div>
-            <div class="product-name">Trend Relay</div>
-            <div class="product-sub">Bitcoin-native content intelligence</div>
-            <p class="product-desc">An autonomous publishing engine that scans trending signals, generates Bitcoin-native content, and distributes across Nostr and the web — all without touching fiat. Grows distribution on autopilot.</p>
+            <div class="product-name">Loop Gateway</div>
+            <div class="product-sub">Pay-per-prompt AI access</div>
+            <p class="product-desc">An OpenAI-compatible API proxy that charges per prompt. Pay in sats over Lightning (L402) or preload fiat credits via Stripe — no subscriptions, no accounts. 300+ models through OpenRouter, available to humans and agents alike.</p>
             <div class="product-tags">
-              <span class="tag tag--gold">Nostr</span>
-              <span class="tag tag--gold">Autonomous</span>
-              <span class="tag">Content Engine</span>
+              <span class="tag tag--btc">Bitcoin</span>
+              <span class="tag tag--ln">L402</span>
+              <span class="tag">OpenAI Compatible</span>
+              <span class="tag">300+ Models</span>
             </div>
           </div>
         </article>
